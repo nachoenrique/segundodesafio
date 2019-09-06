@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Login from "./Componentes/Login";
+import Login from "./Pagina/Login";
 import * as serviceWorker from "./serviceWorker";
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css"; 
 
 ReactDOM.render(<Login />, document.getElementById("root"));
 

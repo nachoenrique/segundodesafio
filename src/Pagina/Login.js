@@ -15,9 +15,10 @@ class Login extends React.Component {
         [e.target.name]: e.target.value
       }
     });
-    //El boton se actica cuando se cargan datos
+    //El boton se activa cuando se cargan datos
     const dat = this.state.data;
     if (dat.nom === "" || dat.ap === "" || dat.email === "" || dat.dni === "") {
+      this.setState({ disabledBoton: true })
     } else {
       this.setState({ disabledBoton: false });
     }
@@ -27,27 +28,13 @@ class Login extends React.Component {
     this.setState({ data: { nom: "", ap: "", email: "", dni: "" } });
   };
 
-  handleClick = e => {
-    // <div className="card mb-2">
-    //   <div className="card-body">
-    //     <h2>
-    //       {this.data.nom} {this.data.ap}
-    //     </h2>
-    //     <p>{this.data.dni}</p>
-    //     <p>{this.data.email}</p>
-    //   </div>
-    // </div>;
-  };
 
   render() {
     return (
       <div className="container">
-        <form>
-          <div className="img">
-            <img src="" alt="" />
-          </div>
+        <div>
+          <form>
 
-          <div className="list-unstyled">
             <label>Nombre</label>
             <input
               onChange={this.handleChange}
@@ -76,17 +63,18 @@ class Login extends React.Component {
               type="email"
               name="email"
             />
-          </div>
-        </form>
+
+          </form>
+        </div>
+
         <div style={{ flexDirection: "row-reverse" }} className="row mb-4">
-          <a
-            href="/"
+          <button
             className="btn btn-primary "
             disabled={this.state.disabledBoton}
-            //onClick={this.handleClick}
+          //onClick={this.handleClick}
           >
             Agregar
-          </a>
+          </button>
           <a
             href="/"
             className="btn btn-primary mr-4 "
